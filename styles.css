@@ -5,12 +5,14 @@
 }
 
 :root {
-    --primary-color: #ff6b35;
-    --secondary-color: #f7931e;
+    --primary-color: #FF6B35;
+    --secondary-color: #F7B801;
     --dark-color: #1a1a1a;
     --light-color: #f5f5f5;
     --text-color: #333;
-    --accent-color: #4ecdc4;
+    --accent-color: #00D9FF;
+    --purple-color: #9D4EDD;
+    --pink-color: #FF006E;
 }
 
 body {
@@ -53,25 +55,21 @@ body {
     z-index: 1;
 }
 
-.main-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 5rem;
-    font-weight: 900;
-    letter-spacing: 8px;
+.hero-logo {
+    max-width: 500px;
+    width: 90%;
+    height: auto;
     margin-bottom: 20px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
     animation: glow 2s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 20px rgba(255, 107, 53, 0.6));
 }
 
 @keyframes glow {
     from {
-        filter: drop-shadow(0 0 10px rgba(255, 107, 53, 0.5));
+        filter: drop-shadow(0 0 15px rgba(255, 107, 53, 0.5));
     }
     to {
-        filter: drop-shadow(0 0 20px rgba(255, 107, 53, 0.8));
+        filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.9));
     }
 }
 
@@ -85,18 +83,59 @@ body {
 /* About Section */
 .about-section {
     padding: 80px 20px;
-    background: white;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    position: relative;
+    overflow: hidden;
 }
 
-.logo-container {
-    text-align: center;
-    margin-bottom: 40px;
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
+    opacity: 0.1;
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
 }
 
-.logo {
-    max-width: 250px;
+.about-section::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--purple-color) 0%, transparent 70%);
+    opacity: 0.1;
+    border-radius: 50%;
+    animation: float 8s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-30px) scale(1.1);
+    }
+}
+
+.floating-decoration {
+    position: absolute;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.s-decoration {
+    width: 300px;
     height: auto;
-    animation: fadeInDown 1s ease;
+    bottom: 10%;
+    right: 5%;
+    animation: float 7s ease-in-out infinite;
 }
 
 .section-title {
@@ -118,7 +157,7 @@ body {
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color), var(--pink-color));
     border-radius: 2px;
 }
 
@@ -135,34 +174,30 @@ body {
     padding: 0 20px;
 }
 
-.about-images {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    margin-top: 50px;
-}
-
-.color-palette,
-.s-logo {
-    max-width: 200px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.color-palette:hover,
-.s-logo:hover {
-    transform: translateY(-10px);
+.about-content {
+    position: relative;
+    z-index: 2;
 }
 
 /* Track Section */
 .track-section {
     padding: 80px 20px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, var(--purple-color) 0%, var(--pink-color) 100%);
     color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.track-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('recursos/Recurso 4.png') center/contain no-repeat;
+    opacity: 0.05;
+    z-index: 0;
 }
 
 .track-section .section-title {
@@ -178,11 +213,15 @@ body {
     font-size: 1.1rem;
     margin-bottom: 40px;
     opacity: 0.9;
+    position: relative;
+    z-index: 1;
 }
 
 .audio-player {
     max-width: 600px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .player-container {
@@ -452,7 +491,7 @@ body {
 /* Social Section */
 .social-section {
     padding: 80px 20px;
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
     color: white;
 }
 
@@ -538,13 +577,18 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .main-title {
-        font-size: 3rem;
-        letter-spacing: 4px;
+    .hero-logo {
+        max-width: 300px;
     }
 
     .subtitle {
         font-size: 1.2rem;
+    }
+    
+    .s-decoration {
+        width: 150px;
+        bottom: 5%;
+        right: 2%;
     }
 
     .section-title {
@@ -584,12 +628,16 @@ body {
 }
 
 @media (max-width: 480px) {
-    .main-title {
-        font-size: 2.5rem;
+    .hero-logo {
+        max-width: 250px;
     }
 
     .hero {
         padding: 80px 20px 60px;
+    }
+    
+    .s-decoration {
+        width: 100px;
     }
 
     .about-section,
