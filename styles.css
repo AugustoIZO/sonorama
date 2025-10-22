@@ -30,7 +30,7 @@ body {
 /* Hero Section */
 .hero {
     background: linear-gradient(135deg, var(--black) 0%, var(--dark-gray) 100%);
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
     padding: 120px 20px 80px;
     position: relative;
