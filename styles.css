@@ -103,7 +103,7 @@ body {
     content: '';
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 40%;
     transform: translate(-50%, -50%);
     width: 300px;
     height: 300px;
@@ -609,10 +609,12 @@ body {
         font-size: 1.2rem;
     }
     
-    .s-decoration {
-        width: 150px;
-        bottom: 5%;
-        right: 2%;
+    .about-section::before {
+        width: 200px;
+        height: 200px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
     .section-title {
@@ -660,8 +662,12 @@ body {
         padding: 80px 20px 60px;
     }
     
-    .s-decoration {
-        width: 100px;
+    .about-section::before {
+        width: 150px;
+        height: 150px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
     .about-section,
