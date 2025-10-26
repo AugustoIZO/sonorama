@@ -610,8 +610,8 @@ body {
     }
     
     .about-section::before {
-        width: 200px;
-        height: 200px;
+        width: 350px;
+        height: 350px;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -663,8 +663,8 @@ body {
     }
     
     .about-section::before {
-        width: 150px;
-        height: 150px;
+        width: 280px;
+        height: 280px;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
